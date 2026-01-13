@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/config.php';
 
-$pdo = new PDO(
-    'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME,
-    DB_USER,
-    DB_PASS
+$config = require __DIR__ . '/config.php';
+
+return new PDO(
+    'mysql:host=' . $config['host'] . ';dbname=' . $config['name'],
+    $config['user'],
+    $config['pass']
 );
